@@ -1,4 +1,10 @@
 <script lang="ts">
+	import Input from './Input.svelte';
+	import Output from './Output.svelte';
+	import { handleData } from './dataHandler';
+	import type { FlyerData } from './utils';
+
+	// Creates a print window for just the printable area
 	function print() {
 		// Create window for printing
 		const printContent = document.querySelector(".print");
@@ -13,6 +19,15 @@
 		printWindow.focus();
 		printWindow.print();
 	}
+
+	// Create output flyer
+	let flyerData = {} as FlyerData;
+
+	function submitFinished(e: CustomEvent) {
+		flyerData = e.detail.data;
+		(document.querySelector("#input-form") as HTMLElement).hidden = true;
+		(document.querySelector("#output-area") as HTMLElement).hidden = false;
+	}
 </script>
 
 <main>
@@ -26,11 +41,14 @@
 			<span><i class="centered-item fas fa-print fa-2x"></i></span>
 		</div>
 
+		<!-- Get Flyer Data -->
+		<div class="container" id="input-form">
+			<Input on:finished={submitFinished}/>
+		</div>
+
 		<!-- Printable Area -->
-		<div class="container print-area print" paper-size="US-LETTER">
-			<div class="row full-width mb-3">
-				
-			</div>
+		<div class="container print-area print my-5" id="output-area" paper-size="US-LETTER" hidden>
+			<Output {flyerData}/>
 		</div>
 	</div>
 </main>
@@ -69,9 +87,11 @@
 	}
 	
 	.print-area[paper-size="US-LETTER"] {
-		border: #292929;
+		box-sizing: border-box;
+		border: solid;
+		border-color: #292929;
 		border-width: 5px;
-		width: 22cm;
-		height: 28cm;
+		min-width: 22cm;
+		min-height: 28cm;
 	}
 </style>
