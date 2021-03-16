@@ -59,6 +59,9 @@ var app = (function () {
     function children(element) {
         return Array.from(element.childNodes);
     }
+    function set_style(node, key, value, important) {
+        node.style.setProperty(key, value, important ? 'important' : '');
+    }
     function custom_event(type, detail) {
         const e = document.createEvent('CustomEvent');
         e.initCustomEvent(type, false, false, detail);
@@ -373,12 +376,15 @@ var app = (function () {
     (function (DataFields) {
         DataFields[DataFields["SPEAKER_NAME"] = 0] = "SPEAKER_NAME";
         DataFields[DataFields["SPEAKER_TITLE"] = 1] = "SPEAKER_TITLE";
-        DataFields[DataFields["SEMINAR_TITLE"] = 2] = "SEMINAR_TITLE";
-        DataFields[DataFields["SEMINAR_ABSTRACT"] = 3] = "SEMINAR_ABSTRACT";
-        DataFields[DataFields["SEMINAR_DATE"] = 4] = "SEMINAR_DATE";
-        DataFields[DataFields["SEMINAR_TIME"] = 5] = "SEMINAR_TIME";
-        DataFields[DataFields["SEMINAR_LOCATION"] = 6] = "SEMINAR_LOCATION";
-        DataFields[DataFields["SEMINAR_LINK"] = 7] = "SEMINAR_LINK";
+        DataFields[DataFields["SPEAKER_INSTITUTION_0"] = 2] = "SPEAKER_INSTITUTION_0";
+        DataFields[DataFields["SPEAKER_INSTITUTION_1"] = 3] = "SPEAKER_INSTITUTION_1";
+        DataFields[DataFields["SEMINAR_TITLE"] = 4] = "SEMINAR_TITLE";
+        DataFields[DataFields["SEMINAR_ABSTRACT"] = 5] = "SEMINAR_ABSTRACT";
+        DataFields[DataFields["SEMINAR_DATE"] = 6] = "SEMINAR_DATE";
+        DataFields[DataFields["SEMINAR_TIME"] = 7] = "SEMINAR_TIME";
+        DataFields[DataFields["SEMINAR_QUARTER"] = 8] = "SEMINAR_QUARTER";
+        DataFields[DataFields["SEMINAR_LOCATION"] = 9] = "SEMINAR_LOCATION";
+        DataFields[DataFields["SEMINAR_LINK"] = 10] = "SEMINAR_LINK";
     })(DataFields || (DataFields = {}));
 
     let flyer = {};
@@ -401,8 +407,22 @@ var app = (function () {
 
     function create_fragment(ctx) {
     	let main;
-    	let p;
+    	let div4;
+    	let form;
+    	let div2;
+    	let div0;
+    	let h30;
+    	let label0;
     	let t1;
+    	let input0;
+    	let t2;
+    	let div1;
+    	let h31;
+    	let label1;
+    	let t4;
+    	let input1;
+    	let t5;
+    	let div3;
     	let button;
     	let mounted;
     	let dispose;
@@ -410,24 +430,82 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			main = element("main");
-    			p = element("p");
-    			p.textContent = "Hey!";
+    			div4 = element("div");
+    			form = element("form");
+    			div2 = element("div");
+    			div0 = element("div");
+    			h30 = element("h3");
+    			label0 = element("label");
+    			label0.textContent = "Speaker Name *";
     			t1 = space();
+    			input0 = element("input");
+    			t2 = space();
+    			div1 = element("div");
+    			h31 = element("h3");
+    			label1 = element("label");
+    			label1.textContent = "Speaker Title *";
+    			t4 = space();
+    			input1 = element("input");
+    			t5 = space();
+    			div3 = element("div");
     			button = element("button");
-    			button.textContent = "Click";
-    			add_location(p, file, 20, 4, 618);
-    			attr_dev(button, "class", "btn-primary");
-    			add_location(button, file, 21, 4, 635);
-    			add_location(main, file, 19, 0, 606);
+    			button.textContent = "Create Flyer";
+    			attr_dev(label0, "for", "speaker-name");
+    			add_location(label0, file, 33, 24, 1169);
+    			add_location(h30, file, 33, 20, 1165);
+    			attr_dev(input0, "class", "form-control-lg full-width svelte-ccq73n");
+    			attr_dev(input0, "type", "text");
+    			attr_dev(input0, "id", "speaker-name");
+    			attr_dev(input0, "placeholder", "e.g. Tomioka Giyuu, PhD");
+    			add_location(input0, file, 34, 20, 1244);
+    			attr_dev(div0, "class", "form-group col-md-6 svelte-ccq73n");
+    			add_location(div0, file, 32, 16, 1110);
+    			attr_dev(label1, "for", "speaker-title");
+    			add_location(label1, file, 37, 24, 1457);
+    			add_location(h31, file, 37, 20, 1453);
+    			attr_dev(input1, "class", "form-control-lg full-width svelte-ccq73n");
+    			attr_dev(input1, "type", "text");
+    			attr_dev(input1, "id", "speaker-title");
+    			attr_dev(input1, "placeholder", "e.g. Assistant Professor of Statistics");
+    			add_location(input1, file, 38, 20, 1534);
+    			attr_dev(div1, "class", "form-group col-md-6 svelte-ccq73n");
+    			add_location(div1, file, 36, 16, 1398);
+    			attr_dev(div2, "class", "form-row my-2 svelte-ccq73n");
+    			attr_dev(div2, "id", "form-row-0");
+    			add_location(div2, file, 31, 12, 1049);
+    			attr_dev(button, "class", "btn btn-primary");
+    			add_location(button, file, 42, 16, 1771);
+    			set_style(div3, "text-align", "center");
+    			add_location(div3, file, 41, 12, 1720);
+    			attr_dev(form, "class", "full-width svelte-ccq73n");
+    			add_location(form, file, 30, 8, 1010);
+    			attr_dev(div4, "class", "row my-2 align-items-center full-width svelte-ccq73n");
+    			attr_dev(div4, "id", "user-input-form");
+    			add_location(div4, file, 29, 4, 927);
+    			add_location(main, file, 28, 0, 915);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
-    			append_dev(main, p);
-    			append_dev(main, t1);
-    			append_dev(main, button);
+    			append_dev(main, div4);
+    			append_dev(div4, form);
+    			append_dev(form, div2);
+    			append_dev(div2, div0);
+    			append_dev(div0, h30);
+    			append_dev(h30, label0);
+    			append_dev(div0, t1);
+    			append_dev(div0, input0);
+    			append_dev(div2, t2);
+    			append_dev(div2, div1);
+    			append_dev(div1, h31);
+    			append_dev(h31, label1);
+    			append_dev(div1, t4);
+    			append_dev(div1, input1);
+    			append_dev(form, t5);
+    			append_dev(form, div3);
+    			append_dev(div3, button);
 
     			if (!mounted) {
     				dispose = listen_dev(button, "click", /*buttonClick*/ ctx[0], false, false, false);
@@ -461,6 +539,15 @@ var app = (function () {
     	
 
     	function buttonClick(e) {
+    		e.preventDefault();
+
+    		const form = document.querySelector("#user-input-form");
+
+    		form.querySelectorAll("input").forEach(inputField => {
+    		});
+
+    		// console.log(formFields);
+    		// Try submitting each field
     		submitField(DataFields.SPEAKER_NAME);
     	}
 
@@ -651,25 +738,27 @@ var app = (function () {
     			div2 = element("div");
     			create_component(output.$$.fragment);
     			attr_dev(h1, "class", "my-3 text-white");
-    			add_location(h1, file$2, 28, 2, 1027);
+    			add_location(h1, file$2, 29, 2, 1088);
     			attr_dev(header, "class", "bg-dark text-center p-2 mb-3");
-    			add_location(header, file$2, 27, 1, 978);
-    			attr_dev(i, "class", "centered-item fas fa-print fa-2x svelte-1b80y14");
-    			add_location(i, file$2, 34, 9, 1225);
-    			add_location(span, file$2, 34, 3, 1219);
-    			attr_dev(div0, "class", "container float pointer-hover svelte-1b80y14");
-    			add_location(div0, file$2, 33, 2, 1154);
+    			add_location(header, file$2, 28, 1, 1039);
+    			attr_dev(i, "class", "centered-item fas fa-print fa-2x svelte-12jkxcc");
+    			add_location(i, file$2, 35, 9, 1311);
+    			add_location(span, file$2, 35, 3, 1305);
+    			attr_dev(div0, "class", "container float pointer-hover svelte-12jkxcc");
+    			attr_dev(div0, "id", "print-button");
+    			div0.hidden = true;
+    			add_location(div0, file$2, 34, 2, 1215);
     			attr_dev(div1, "class", "container");
     			attr_dev(div1, "id", "input-form");
-    			add_location(div1, file$2, 38, 2, 1323);
-    			attr_dev(div2, "class", "container print-area print my-5 svelte-1b80y14");
+    			add_location(div1, file$2, 39, 2, 1409);
+    			attr_dev(div2, "class", "container print-area print my-5 svelte-12jkxcc");
     			attr_dev(div2, "id", "output-area");
     			attr_dev(div2, "paper-size", "US-LETTER");
     			div2.hidden = true;
-    			add_location(div2, file$2, 43, 2, 1447);
+    			add_location(div2, file$2, 44, 2, 1533);
     			attr_dev(div3, "class", "container");
-    			add_location(div3, file$2, 31, 1, 1102);
-    			add_location(main, file$2, 26, 0, 969);
+    			add_location(div3, file$2, 32, 1, 1163);
+    			add_location(main, file$2, 27, 0, 1030);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -762,6 +851,7 @@ var app = (function () {
     		$$invalidate(0, flyerData = e.detail.data);
     		document.querySelector("#input-form").hidden = true;
     		document.querySelector("#output-area").hidden = false;
+    		document.querySelector("#print-button").hidden = false;
     	}
 
     	const writable_props = [];

@@ -27,6 +27,7 @@
 		flyerData = e.detail.data;
 		(document.querySelector("#input-form") as HTMLElement).hidden = true;
 		(document.querySelector("#output-area") as HTMLElement).hidden = false;
+		(document.querySelector("#print-button") as HTMLElement).hidden = false;
 	}
 </script>
 
@@ -37,7 +38,7 @@
 
 	<div class="container">
 		<!-- Print Button -->
-		<div class="container float pointer-hover" on:click={print}>
+		<div class="container float pointer-hover" id="print-button" on:click={print} hidden>
 			<span><i class="centered-item fas fa-print fa-2x"></i></span>
 		</div>
 
@@ -67,7 +68,7 @@
         position: fixed;
         width: 60px;
         height: 60px;
-        bottom: 80px;
+        bottom: 40px;
         right: 40px;
         background-color: #292929;
         color: ghostwhite;
