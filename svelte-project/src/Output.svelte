@@ -4,6 +4,7 @@
     export let flyerData: FlyerData = {} as FlyerData;
 
     function createOutputFromData(flyerData: FlyerData): string {
+        console.log(flyerData);
         return `<p>test</p>`;
     }
 </script>
