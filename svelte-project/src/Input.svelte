@@ -73,7 +73,7 @@
             <div class="form-row my-2" id="form-row-3">
                 <div class="form-group col">
                     <h3><label for="seminar-abstract">Seminar Abstract *</label></h3>
-                    <textarea style="min-height: 400px; padding-left: 20px;" class="form-control-lg full-width" id="seminar-abstract" />
+                    <textarea class="form-control-lg full-width" id="seminar-abstract" />
                 </div>
             </div>
             <div class="form-row my-2" id="form-row-4">
@@ -138,6 +138,13 @@
 
     small {
         margin-left: 5px;
+    }
+
+    textarea {
+        min-height: 400px;
+        margin-left: 5px;
+        padding: 20px;
+        border-width: 2px;
     }
 
     .full-width {

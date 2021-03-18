@@ -157,6 +157,19 @@ var app = (function () {
     }
     const outroing = new Set();
     let outros;
+    function group_outros() {
+        outros = {
+            r: 0,
+            c: [],
+            p: outros // parent group
+        };
+    }
+    function check_outros() {
+        if (!outros.r) {
+            run_all(outros.c);
+        }
+        outros = outros.p;
+    }
     function transition_in(block, local) {
         if (block && block.i) {
             outroing.delete(block);
@@ -491,32 +504,32 @@ var app = (function () {
     			h4 = element("h4");
     			h4.textContent = "Refreshments will be served";
     			attr_dev(label0, "for", "seminar-location");
-    			add_location(label0, file, 106, 28, 5839);
-    			add_location(h3, file, 106, 24, 5835);
-    			attr_dev(input0, "class", "form-control-lg full-width svelte-b9ll4o");
+    			add_location(label0, file, 106, 28, 5792);
+    			add_location(h3, file, 106, 24, 5788);
+    			attr_dev(input0, "class", "form-control-lg full-width svelte-fvurrf");
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "id", "seminar-location");
     			input0.value = "CHS 33-105A";
-    			add_location(input0, file, 107, 24, 5926);
+    			add_location(input0, file, 107, 24, 5879);
     			attr_dev(div0, "class", "form-group col-md-6");
-    			add_location(div0, file, 105, 20, 5776);
+    			add_location(div0, file, 105, 20, 5729);
     			attr_dev(input1, "type", "checkbox");
-    			attr_dev(input1, "class", "custom-control-input svelte-b9ll4o");
+    			attr_dev(input1, "class", "custom-control-input svelte-fvurrf");
     			attr_dev(input1, "id", "customCheck1");
-    			add_location(input1, file, 111, 28, 6252);
-    			add_location(h4, file, 112, 83, 6437);
+    			add_location(input1, file, 111, 28, 6205);
+    			add_location(h4, file, 112, 83, 6390);
     			attr_dev(label1, "class", "custom-control-label");
     			attr_dev(label1, "for", "customCheck1");
-    			add_location(label1, file, 112, 28, 6382);
+    			add_location(label1, file, 112, 28, 6335);
     			attr_dev(div1, "class", "custom-control custom-checkbox");
-    			add_location(div1, file, 110, 24, 6178);
+    			add_location(div1, file, 110, 24, 6131);
     			set_style(div2, "text-align", "center");
     			set_style(div2, "margin-top", "4em");
     			attr_dev(div2, "class", "form-group col-md-6");
-    			add_location(div2, file, 109, 20, 6074);
+    			add_location(div2, file, 109, 20, 6027);
     			attr_dev(div3, "class", "form-row my-2");
     			attr_dev(div3, "id", "form-row-6b");
-    			add_location(div3, file, 104, 16, 5710);
+    			add_location(div3, file, 104, 16, 5663);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div3, anchor);
@@ -599,33 +612,33 @@ var app = (function () {
     			small1 = element("small");
     			small1.textContent = "Fill in the template above";
     			attr_dev(label0, "for", "seminar-link");
-    			add_location(label0, file, 93, 28, 4903);
-    			add_location(h30, file, 93, 24, 4899);
-    			attr_dev(input0, "class", "form-control-lg full-width svelte-b9ll4o");
+    			add_location(label0, file, 93, 28, 4856);
+    			add_location(h30, file, 93, 24, 4852);
+    			attr_dev(input0, "class", "form-control-lg full-width svelte-fvurrf");
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "id", "seminar-link");
-    			add_location(input0, file, 94, 24, 4982);
+    			add_location(input0, file, 94, 24, 4935);
     			attr_dev(small0, "id", "seminar-link-help");
-    			attr_dev(small0, "class", "form-text text-muted svelte-b9ll4o");
-    			add_location(small0, file, 95, 24, 5082);
+    			attr_dev(small0, "class", "form-text text-muted svelte-fvurrf");
+    			add_location(small0, file, 95, 24, 5035);
     			attr_dev(div0, "class", "form-group col-md-6");
-    			add_location(div0, file, 92, 20, 4840);
+    			add_location(div0, file, 92, 20, 4793);
     			attr_dev(label1, "for", "seminar-meeting-id-pwd");
-    			add_location(label1, file, 98, 28, 5271);
-    			add_location(h31, file, 98, 24, 5267);
-    			attr_dev(input1, "class", "form-control-lg full-width svelte-b9ll4o");
+    			add_location(label1, file, 98, 28, 5224);
+    			add_location(h31, file, 98, 24, 5220);
+    			attr_dev(input1, "class", "form-control-lg full-width svelte-fvurrf");
     			attr_dev(input1, "type", "text");
     			attr_dev(input1, "id", "seminar-meeting-id-pwd");
     			input1.value = DEFAULT_MEETING_ID_PASSWORD;
-    			add_location(input1, file, 99, 24, 5371);
+    			add_location(input1, file, 99, 24, 5324);
     			attr_dev(small1, "id", "seminar-meeting-id-pwd-help");
-    			attr_dev(small1, "class", "form-text text-muted svelte-b9ll4o");
-    			add_location(small1, file, 100, 24, 5516);
+    			attr_dev(small1, "class", "form-text text-muted svelte-fvurrf");
+    			add_location(small1, file, 100, 24, 5469);
     			attr_dev(div1, "class", "form-group col-md-6");
-    			add_location(div1, file, 97, 20, 5208);
+    			add_location(div1, file, 97, 20, 5161);
     			attr_dev(div2, "class", "form-row my-2");
     			attr_dev(div2, "id", "form-row-6a");
-    			add_location(div2, file, 91, 16, 4774);
+    			add_location(div2, file, 91, 16, 4727);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div2, anchor);
@@ -835,30 +848,30 @@ var app = (function () {
     			attr_dev(label0, "for", "speaker-name");
     			add_location(label0, file, 40, 24, 1458);
     			add_location(h30, file, 40, 20, 1454);
-    			attr_dev(input0, "class", "form-control-lg full-width svelte-b9ll4o");
+    			attr_dev(input0, "class", "form-control-lg full-width svelte-fvurrf");
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "id", "speaker-name");
     			attr_dev(input0, "placeholder", "e.g. Tomioka Giyuu, PhD");
     			add_location(input0, file, 41, 20, 1533);
-    			attr_dev(div0, "class", "form-group col-md-6 svelte-b9ll4o");
+    			attr_dev(div0, "class", "form-group col-md-6 svelte-fvurrf");
     			add_location(div0, file, 39, 16, 1399);
     			attr_dev(label1, "for", "speaker-title");
     			add_location(label1, file, 44, 24, 1746);
     			add_location(h31, file, 44, 20, 1742);
-    			attr_dev(input1, "class", "form-control-lg full-width svelte-b9ll4o");
+    			attr_dev(input1, "class", "form-control-lg full-width svelte-fvurrf");
     			attr_dev(input1, "type", "text");
     			attr_dev(input1, "id", "speaker-title");
     			attr_dev(input1, "placeholder", "e.g. Assistant Professor of Statistics");
     			add_location(input1, file, 45, 20, 1823);
-    			attr_dev(div1, "class", "form-group col-md-6 svelte-b9ll4o");
+    			attr_dev(div1, "class", "form-group col-md-6 svelte-fvurrf");
     			add_location(div1, file, 43, 16, 1687);
-    			attr_dev(div2, "class", "form-row my-2 svelte-b9ll4o");
+    			attr_dev(div2, "class", "form-row my-2 svelte-fvurrf");
     			attr_dev(div2, "id", "form-row-0");
     			add_location(div2, file, 38, 12, 1338);
     			attr_dev(label2, "for", "speaker-institution-0");
     			add_location(label2, file, 50, 24, 2129);
     			add_location(h32, file, 50, 20, 2125);
-    			attr_dev(input2, "class", "form-control-lg full-width svelte-b9ll4o");
+    			attr_dev(input2, "class", "form-control-lg full-width svelte-fvurrf");
     			attr_dev(input2, "type", "text");
     			attr_dev(input2, "id", "speaker-institution-0");
     			attr_dev(input2, "placeholder", "e.g. Department of Biostatistics");
@@ -868,7 +881,7 @@ var app = (function () {
     			attr_dev(label3, "for", "speaker-institution-1");
     			add_location(label3, file, 54, 24, 2458);
     			add_location(h33, file, 54, 20, 2454);
-    			attr_dev(input3, "class", "form-control-lg full-width svelte-b9ll4o");
+    			attr_dev(input3, "class", "form-control-lg full-width svelte-fvurrf");
     			attr_dev(input3, "type", "text");
     			attr_dev(input3, "id", "speaker-institution-1");
     			attr_dev(input3, "placeholder", "e.g. UCLA");
@@ -881,7 +894,7 @@ var app = (function () {
     			attr_dev(label4, "for", "seminar-title");
     			add_location(label4, file, 60, 24, 2836);
     			add_location(h34, file, 60, 20, 2832);
-    			attr_dev(input4, "class", "form-control-lg full-width svelte-b9ll4o");
+    			attr_dev(input4, "class", "form-control-lg full-width svelte-fvurrf");
     			attr_dev(input4, "type", "text");
     			attr_dev(input4, "id", "seminar-title");
     			add_location(input4, file, 61, 20, 2913);
@@ -893,9 +906,7 @@ var app = (function () {
     			attr_dev(label5, "for", "seminar-abstract");
     			add_location(label5, file, 66, 24, 3161);
     			add_location(h35, file, 66, 20, 3157);
-    			set_style(textarea, "min-height", "400px");
-    			set_style(textarea, "padding-left", "20px");
-    			attr_dev(textarea, "class", "form-control-lg full-width svelte-b9ll4o");
+    			attr_dev(textarea, "class", "form-control-lg full-width svelte-fvurrf");
     			attr_dev(textarea, "id", "seminar-abstract");
     			add_location(textarea, file, 67, 20, 3244);
     			attr_dev(div8, "class", "form-group col");
@@ -904,58 +915,58 @@ var app = (function () {
     			attr_dev(div9, "id", "form-row-3");
     			add_location(div9, file, 64, 12, 3046);
     			attr_dev(label6, "for", "seminar-quarter");
-    			add_location(label6, file, 72, 24, 3533);
-    			add_location(h36, file, 72, 20, 3529);
-    			attr_dev(input5, "class", "form-control-lg full-width svelte-b9ll4o");
+    			add_location(label6, file, 72, 24, 3486);
+    			add_location(h36, file, 72, 20, 3482);
+    			attr_dev(input5, "class", "form-control-lg full-width svelte-fvurrf");
     			attr_dev(input5, "type", "text");
     			attr_dev(input5, "id", "seminar-quarter");
     			attr_dev(input5, "placeholder", "e.g. Spring 2021");
-    			add_location(input5, file, 73, 20, 3614);
+    			add_location(input5, file, 73, 20, 3567);
     			attr_dev(div10, "class", "form-group col");
-    			add_location(div10, file, 71, 16, 3479);
+    			add_location(div10, file, 71, 16, 3432);
     			attr_dev(label7, "for", "seminar-date");
-    			add_location(label7, file, 76, 24, 3818);
-    			add_location(h37, file, 76, 20, 3814);
-    			attr_dev(input6, "class", "form-control-lg full-width svelte-b9ll4o");
+    			add_location(label7, file, 76, 24, 3771);
+    			add_location(h37, file, 76, 20, 3767);
+    			attr_dev(input6, "class", "form-control-lg full-width svelte-fvurrf");
     			attr_dev(input6, "type", "date");
     			attr_dev(input6, "id", "seminar-date");
-    			add_location(input6, file, 77, 20, 3893);
+    			add_location(input6, file, 77, 20, 3846);
     			attr_dev(div11, "class", "form-group col");
-    			add_location(div11, file, 75, 16, 3764);
+    			add_location(div11, file, 75, 16, 3717);
     			attr_dev(label8, "for", "seminar-time");
-    			add_location(label8, file, 80, 24, 4063);
-    			add_location(h38, file, 80, 20, 4059);
-    			attr_dev(input7, "class", "form-control-lg full-width svelte-b9ll4o");
+    			add_location(label8, file, 80, 24, 4016);
+    			add_location(h38, file, 80, 20, 4012);
+    			attr_dev(input7, "class", "form-control-lg full-width svelte-fvurrf");
     			attr_dev(input7, "type", "text");
     			attr_dev(input7, "id", "seminar-time");
     			input7.value = "3:30pm - 4:30pm";
-    			add_location(input7, file, 81, 20, 4138);
+    			add_location(input7, file, 81, 20, 4091);
     			attr_dev(div12, "class", "form-group col");
-    			add_location(div12, file, 79, 16, 4009);
+    			add_location(div12, file, 79, 16, 3962);
     			attr_dev(div13, "class", "form-row my-2");
     			attr_dev(div13, "id", "form-row-4");
-    			add_location(div13, file, 70, 12, 3418);
+    			add_location(div13, file, 70, 12, 3371);
     			attr_dev(input8, "type", "checkbox");
-    			attr_dev(input8, "class", "custom-control-input svelte-b9ll4o");
+    			attr_dev(input8, "class", "custom-control-input svelte-fvurrf");
     			attr_dev(input8, "id", "customCheck1");
-    			add_location(input8, file, 86, 20, 4448);
-    			add_location(h4, file, 87, 75, 4620);
+    			add_location(input8, file, 86, 20, 4401);
+    			add_location(h4, file, 87, 75, 4573);
     			attr_dev(label9, "class", "custom-control-label");
     			attr_dev(label9, "for", "customCheck1");
-    			add_location(label9, file, 87, 20, 4565);
+    			add_location(label9, file, 87, 20, 4518);
     			set_style(div14, "margin-left", "10px");
     			attr_dev(div14, "class", "custom-control custom-checkbox");
-    			add_location(div14, file, 85, 16, 4355);
+    			add_location(div14, file, 85, 16, 4308);
     			attr_dev(div15, "class", "form-row my-2");
     			attr_dev(div15, "id", "form-row-5");
-    			add_location(div15, file, 84, 12, 4294);
+    			add_location(div15, file, 84, 12, 4247);
     			attr_dev(button, "class", "btn btn-primary mb-5");
-    			add_location(button, file, 118, 16, 6649);
+    			add_location(button, file, 118, 16, 6602);
     			set_style(div16, "text-align", "center");
-    			add_location(div16, file, 117, 12, 6598);
-    			attr_dev(form, "class", "full-width svelte-b9ll4o");
+    			add_location(div16, file, 117, 12, 6551);
+    			attr_dev(form, "class", "full-width svelte-fvurrf");
     			add_location(form, file, 37, 8, 1299);
-    			attr_dev(div17, "class", "row my-2 align-items-center full-width svelte-b9ll4o");
+    			attr_dev(div17, "class", "row my-2 align-items-center full-width svelte-fvurrf");
     			attr_dev(div17, "id", "user-input-form");
     			add_location(div17, file, 36, 4, 1216);
     			add_location(main, file, 35, 0, 1204);
@@ -1177,26 +1188,95 @@ var app = (function () {
     const file$1 = "src\\Output.svelte";
 
     function create_fragment$1(ctx) {
+    	let link0;
+    	let link1;
+    	let t0;
     	let main;
-    	let raw_value = createOutputFromData(/*flyerData*/ ctx[0]) + "";
+    	let div1;
+    	let img0;
+    	let img0_src_value;
+    	let t1;
+    	let img1;
+    	let img1_src_value;
+    	let t2;
+    	let div0;
+    	let strong;
+    	let t4;
+    	let p;
 
     	const block = {
     		c: function create() {
+    			link0 = element("link");
+    			link1 = element("link");
+    			t0 = space();
     			main = element("main");
-    			add_location(main, file$1, 8, 0, 165);
+    			div1 = element("div");
+    			img0 = element("img");
+    			t1 = space();
+    			img1 = element("img");
+    			t2 = space();
+    			div0 = element("div");
+    			strong = element("strong");
+    			strong.textContent = "SEMINAR SERIES";
+    			t4 = space();
+    			p = element("p");
+    			p.textContent = `${/*getField*/ ctx[0](DataFields.SEMINAR_QUARTER)}`;
+    			attr_dev(link0, "rel", "preconnect");
+    			attr_dev(link0, "href", "https://fonts.gstatic.com");
+    			add_location(link0, file$1, 57, 4, 1796);
+    			attr_dev(link1, "href", "https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Open+Sans:wght@300;400;600;700&display=swap");
+    			attr_dev(link1, "rel", "stylesheet");
+    			add_location(link1, file$1, 58, 4, 1858);
+    			attr_dev(img0, "id", "ucla-logo");
+    			if (img0.src !== (img0_src_value = "images/UCLA_white.png")) attr_dev(img0, "src", img0_src_value);
+    			attr_dev(img0, "alt", "UCLA_logo");
+    			attr_dev(img0, "class", "svelte-uh9mpj");
+    			add_location(img0, file$1, 63, 8, 2098);
+    			attr_dev(img1, "id", "biostats-logo");
+    			if (img1.src !== (img1_src_value = "images/biostats_white.png")) attr_dev(img1, "src", img1_src_value);
+    			attr_dev(img1, "alt", "Biostats_logo");
+    			attr_dev(img1, "class", "svelte-uh9mpj");
+    			add_location(img1, file$1, 64, 8, 2174);
+    			set_style(strong, "color", "white");
+    			attr_dev(strong, "id", "header-text-top");
+    			add_location(strong, file$1, 66, 12, 2325);
+    			set_style(p, "color", "#fcb316");
+    			set_style(p, "font-weight", "lighter");
+    			add_location(p, file$1, 67, 12, 2413);
+    			set_style(div0, "text-align", "right");
+    			attr_dev(div0, "id", "header-text");
+    			attr_dev(div0, "class", "svelte-uh9mpj");
+    			add_location(div0, file$1, 65, 8, 2262);
+    			attr_dev(div1, "class", "container full-width svelte-uh9mpj");
+    			attr_dev(div1, "id", "header");
+    			add_location(div1, file$1, 62, 4, 2042);
+    			add_location(main, file$1, 61, 0, 2030);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
+    			append_dev(document.head, link0);
+    			append_dev(document.head, link1);
+    			insert_dev(target, t0, anchor);
     			insert_dev(target, main, anchor);
-    			main.innerHTML = raw_value;
+    			append_dev(main, div1);
+    			append_dev(div1, img0);
+    			append_dev(div1, t1);
+    			append_dev(div1, img1);
+    			append_dev(div1, t2);
+    			append_dev(div1, div0);
+    			append_dev(div0, strong);
+    			append_dev(div0, t4);
+    			append_dev(div0, p);
     		},
-    		p: function update(ctx, [dirty]) {
-    			if (dirty & /*flyerData*/ 1 && raw_value !== (raw_value = createOutputFromData(/*flyerData*/ ctx[0]) + "")) main.innerHTML = raw_value;		},
+    		p: noop,
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
+    			detach_dev(link0);
+    			detach_dev(link1);
+    			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(main);
     		}
     	};
@@ -1214,41 +1294,94 @@ var app = (function () {
 
     function createOutputFromData(flyerData) {
     	console.log(flyerData);
-    	return `<p>test</p>`;
+    	return `<p>${JSON.stringify(flyerData)}</p>`;
     }
 
     function instance$1($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("Output", slots, []);
     	
-    	let { flyerData = {} } = $$props;
-    	const writable_props = ["flyerData"];
+
+    	let { flyer = {
+    		"speakerName": "",
+    		"speakerTitle": "",
+    		"speakerInstitution0": "",
+    		"speakerInstitution1": "",
+    		"seminarTitle": "",
+    		"seminarAbstract": "",
+    		"seminarDate": null,
+    		"seminarTime": "",
+    		"seminarQuarter": "",
+    		"seminarLocation": "",
+    		"seminarLink": "",
+    		"seminarIDPWD": "",
+    		"refreshments": false
+    	} } = $$props;
+
+    	function getField(field) {
+    		switch (field) {
+    			case DataFields.SPEAKER_NAME:
+    				return flyer.speakerName;
+    			case DataFields.SPEAKER_TITLE:
+    				return flyer.speakerTitle;
+    			case DataFields.SPEAKER_INSTITUTION_0:
+    				return flyer.speakerInstitution0;
+    			case DataFields.SPEAKER_INSTITUTION_1:
+    				return flyer.speakerInstitution1;
+    			case DataFields.SEMINAR_TITLE:
+    				return flyer.seminarTitle;
+    			case DataFields.SEMINAR_ABSTRACT:
+    				return flyer.seminarAbstract;
+    			case DataFields.SEMINAR_QUARTER:
+    				return flyer.seminarQuarter.toUpperCase();
+    			case DataFields.SEMINAR_DATE:
+    				// WILL FIX LATER
+    				return flyer.seminarDate.toDateString();
+    			case DataFields.SEMINAR_TIME:
+    				return flyer.seminarTime;
+    			case DataFields.SEMINAR_LINK:
+    				return flyer.seminarLink;
+    			case DataFields.SEMINAR_ID_PWD:
+    				return flyer.seminarIDPWD;
+    			case DataFields.SEMINAR_LOCATION:
+    				return flyer.seminarLocation;
+    			default:
+    				return "";
+    		}
+    	}
+
+    	const writable_props = ["flyer"];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$1.warn(`<Output> was created with unknown prop '${key}'`);
     	});
 
     	$$self.$$set = $$props => {
-    		if ("flyerData" in $$props) $$invalidate(0, flyerData = $$props.flyerData);
+    		if ("flyer" in $$props) $$invalidate(1, flyer = $$props.flyer);
     	};
 
-    	$$self.$capture_state = () => ({ flyerData, createOutputFromData });
+    	$$self.$capture_state = () => ({
+    		DataFields,
+    		flyer,
+    		createOutputFromData,
+    		getField
+    	});
 
     	$$self.$inject_state = $$props => {
-    		if ("flyerData" in $$props) $$invalidate(0, flyerData = $$props.flyerData);
+    		if ("flyer" in $$props) $$invalidate(1, flyer = $$props.flyer);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [flyerData];
+    	return [getField, flyer];
     }
 
     class Output extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$1, create_fragment$1, safe_not_equal, { flyerData: 0 });
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, { flyer: 1 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -1258,17 +1391,67 @@ var app = (function () {
     		});
     	}
 
-    	get flyerData() {
+    	get flyer() {
     		throw new Error("<Output>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
-    	set flyerData(value) {
+    	set flyer(value) {
     		throw new Error("<Output>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
 
     /* src\App.svelte generated by Svelte v3.31.0 */
+
+    const { console: console_1$2 } = globals;
     const file$2 = "src\\App.svelte";
+
+    // (50:3) {#if showOutput}
+    function create_if_block$1(ctx) {
+    	let output;
+    	let current;
+
+    	output = new Output({
+    			props: { flyer: /*flyerData*/ ctx[0] },
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(output.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(output, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const output_changes = {};
+    			if (dirty & /*flyerData*/ 1) output_changes.flyer = /*flyerData*/ ctx[0];
+    			output.$set(output_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(output.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(output.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(output, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$1.name,
+    		type: "if",
+    		source: "(50:3) {#if showOutput}",
+    		ctx
+    	});
+
+    	return block;
+    }
 
     function create_fragment$2(ctx) {
     	let main;
@@ -1284,17 +1467,12 @@ var app = (function () {
     	let input;
     	let t3;
     	let div2;
-    	let output;
     	let current;
     	let mounted;
     	let dispose;
     	input = new Input({ $$inline: true });
-    	input.$on("finished", /*submitFinished*/ ctx[1]);
-
-    	output = new Output({
-    			props: { flyerData: /*flyerData*/ ctx[0] },
-    			$$inline: true
-    		});
+    	input.$on("finished", /*submitFinished*/ ctx[2]);
+    	let if_block = /*showOutput*/ ctx[1] && create_if_block$1(ctx);
 
     	const block = {
     		c: function create() {
@@ -1312,29 +1490,29 @@ var app = (function () {
     			create_component(input.$$.fragment);
     			t3 = space();
     			div2 = element("div");
-    			create_component(output.$$.fragment);
+    			if (if_block) if_block.c();
     			attr_dev(h1, "class", "my-3 text-white");
-    			add_location(h1, file$2, 29, 2, 1088);
+    			add_location(h1, file$2, 33, 2, 1228);
     			attr_dev(header, "class", "bg-dark text-center p-2 mb-3");
-    			add_location(header, file$2, 28, 1, 1039);
-    			attr_dev(i, "class", "centered-item fas fa-print fa-2x svelte-12jkxcc");
-    			add_location(i, file$2, 35, 9, 1311);
-    			add_location(span, file$2, 35, 3, 1305);
-    			attr_dev(div0, "class", "container float pointer-hover svelte-12jkxcc");
+    			add_location(header, file$2, 32, 1, 1179);
+    			attr_dev(i, "class", "centered-item fas fa-print fa-2x svelte-xkl9zx");
+    			add_location(i, file$2, 39, 9, 1451);
+    			add_location(span, file$2, 39, 3, 1445);
+    			attr_dev(div0, "class", "container float pointer-hover svelte-xkl9zx");
     			attr_dev(div0, "id", "print-button");
     			div0.hidden = true;
-    			add_location(div0, file$2, 34, 2, 1215);
+    			add_location(div0, file$2, 38, 2, 1355);
     			attr_dev(div1, "class", "container");
     			attr_dev(div1, "id", "input-form");
-    			add_location(div1, file$2, 39, 2, 1409);
-    			attr_dev(div2, "class", "container print-area print my-5 svelte-12jkxcc");
+    			add_location(div1, file$2, 43, 2, 1549);
+    			attr_dev(div2, "class", "container print-area print my-5 svelte-xkl9zx");
     			attr_dev(div2, "id", "output-area");
     			attr_dev(div2, "paper-size", "US-LETTER");
     			div2.hidden = true;
-    			add_location(div2, file$2, 44, 2, 1533);
+    			add_location(div2, file$2, 48, 2, 1673);
     			attr_dev(div3, "class", "container");
-    			add_location(div3, file$2, 32, 1, 1163);
-    			add_location(main, file$2, 27, 0, 1030);
+    			add_location(div3, file$2, 36, 1, 1303);
+    			add_location(main, file$2, 31, 0, 1170);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1353,7 +1531,7 @@ var app = (function () {
     			mount_component(input, div1, null);
     			append_dev(div3, t3);
     			append_dev(div3, div2);
-    			mount_component(output, div2, null);
+    			if (if_block) if_block.m(div2, null);
     			current = true;
 
     			if (!mounted) {
@@ -1362,25 +1540,44 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			const output_changes = {};
-    			if (dirty & /*flyerData*/ 1) output_changes.flyerData = /*flyerData*/ ctx[0];
-    			output.$set(output_changes);
+    			if (/*showOutput*/ ctx[1]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+
+    					if (dirty & /*showOutput*/ 2) {
+    						transition_in(if_block, 1);
+    					}
+    				} else {
+    					if_block = create_if_block$1(ctx);
+    					if_block.c();
+    					transition_in(if_block, 1);
+    					if_block.m(div2, null);
+    				}
+    			} else if (if_block) {
+    				group_outros();
+
+    				transition_out(if_block, 1, 1, () => {
+    					if_block = null;
+    				});
+
+    				check_outros();
+    			}
     		},
     		i: function intro(local) {
     			if (current) return;
     			transition_in(input.$$.fragment, local);
-    			transition_in(output.$$.fragment, local);
+    			transition_in(if_block);
     			current = true;
     		},
     		o: function outro(local) {
     			transition_out(input.$$.fragment, local);
-    			transition_out(output.$$.fragment, local);
+    			transition_out(if_block);
     			current = false;
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(main);
     			destroy_component(input);
-    			destroy_component(output);
+    			if (if_block) if_block.d();
     			mounted = false;
     			dispose();
     		}
@@ -1407,6 +1604,7 @@ var app = (function () {
     	printWindow.document.write("<link rel='stylesheet' href='bootstrap.min.css'>");
 
     	printWindow.document.write(printContent.innerHTML);
+    	console.log("HTML to print:\n" + printContent.innerHTML);
 
     	// Focus and call browser print
     	printWindow.document.close();
@@ -1423,17 +1621,21 @@ var app = (function () {
     	// Create output flyer
     	let flyerData = {};
 
+    	// Show output flyer stuff
+    	let showOutput = false;
+
     	function submitFinished(e) {
     		$$invalidate(0, flyerData = e.detail.data);
     		document.querySelector("#input-form").hidden = true;
     		document.querySelector("#output-area").hidden = false;
     		document.querySelector("#print-button").hidden = false;
+    		$$invalidate(1, showOutput = true);
     	}
 
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
-    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<App> was created with unknown prop '${key}'`);
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$2.warn(`<App> was created with unknown prop '${key}'`);
     	});
 
     	$$self.$capture_state = () => ({
@@ -1442,18 +1644,20 @@ var app = (function () {
     		handleData,
     		print,
     		flyerData,
+    		showOutput,
     		submitFinished
     	});
 
     	$$self.$inject_state = $$props => {
     		if ("flyerData" in $$props) $$invalidate(0, flyerData = $$props.flyerData);
+    		if ("showOutput" in $$props) $$invalidate(1, showOutput = $$props.showOutput);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [flyerData, submitFinished];
+    	return [flyerData, showOutput, submitFinished];
     }
 
     class App extends SvelteComponentDev {

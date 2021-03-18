@@ -13,6 +13,7 @@
 		// Link CSS and write HTML
 		printWindow.document.write("<link rel='stylesheet' href='bootstrap.min.css'>");
 		printWindow.document.write(printContent.innerHTML);
+		console.log("HTML to print:\n" + printContent.innerHTML);
 
 		// Focus and call browser print
 		printWindow.document.close();
@@ -23,11 +24,14 @@
 	// Create output flyer
 	let flyerData = {} as FlyerData;
 
+	// Show output flyer stuff
+	let showOutput = false;
 	function submitFinished(e: CustomEvent) {
 		flyerData = e.detail.data;
 		(document.querySelector("#input-form") as HTMLElement).hidden = true;
 		(document.querySelector("#output-area") as HTMLElement).hidden = false;
 		(document.querySelector("#print-button") as HTMLElement).hidden = false;
+		showOutput = true;
 	}
 </script>
 
@@ -49,7 +53,9 @@
 
 		<!-- Printable Area -->
 		<div class="container print-area print my-5" id="output-area" paper-size="US-LETTER" hidden>
-			<Output {flyerData}/>
+			{#if showOutput}
+				<Output flyer={flyerData}/>
+			{/if}
 		</div>
 	</div>
 </main>
@@ -88,11 +94,12 @@
 	}
 	
 	.print-area[paper-size="US-LETTER"] {
-		box-sizing: border-box;
+		box-sizing: content-box;
 		border: solid;
 		border-color: #292929;
 		border-width: 5px;
-		min-width: 22cm;
-		min-height: 28cm;
+		width: 22cm;
+		height: 28cm;
+		padding: 0px 0px 0px 0px;
 	}
 </style>
