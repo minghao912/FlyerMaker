@@ -117,8 +117,8 @@
                     </div>
                     <div style="text-align: center; margin-top: 4em;" class="form-group col-md-6">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck1" on:click={refreshmentsServed}>
-                            <label class="custom-control-label" for="customCheck1"><h4>Refreshments will be served</h4></label>
+                            <input type="checkbox" class="custom-control-input" id="customCheck2" on:click={refreshmentsServed}>
+                            <label class="custom-control-label" for="customCheck2"><h4>Refreshments will be served</h4></label>
                         </div>
                     </div>
                 </div>
