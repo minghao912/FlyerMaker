@@ -12,6 +12,9 @@
 
 		// Link CSS and write HTML
 		printWindow.document.write("<link rel='stylesheet' href='bootstrap.min.css'>");
+		printWindow.document.write("<link rel='stylesheet' href='build/bundle.css'>");
+
+		// Write print data
 		printWindow.document.write(printContent.innerHTML);
 		console.log("HTML to print:\n" + printContent.innerHTML);
 
