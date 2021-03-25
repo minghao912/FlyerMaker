@@ -4,6 +4,10 @@
     import type { FlyerData } from './utils';
     import { handleData } from './dataHandler';
 
+    // FOR DEBUG ONLY
+    export let DEBUG_VALUES: FlyerData;
+    const DEBUG_MODE: boolean = DEBUG_VALUES != null;
+
     const DEFAULT_MEETING_ID_PASSWORD = "Meeting ID: XXX XXXX XXXX | Password: XXXXXX";
 
     // Checkbox triggerable variables
@@ -47,43 +51,43 @@
             <div class="form-row my-2" id="form-row-0">
                 <div class="form-group col-md-6">
                     <h3><label for="speaker-name">Speaker Name *</label></h3>
-                    <input class="form-control-lg full-width" type="text" id="speaker-name" placeholder="e.g. Tomioka Giyuu, PhD" />
+                    <input class="form-control-lg full-width" type="text" id="speaker-name" placeholder="e.g. Tomioka Giyuu, PhD" value={DEBUG_MODE ? DEBUG_VALUES.speakerName : null} />
                 </div>
                 <div class="form-group col-md-6">
                     <h3><label for="speaker-title">Speaker Title *</label></h3>
-                    <input class="form-control-lg full-width" type="text" id="speaker-title" placeholder="e.g. Assistant Professor of Statistics" />
+                    <input class="form-control-lg full-width" type="text" id="speaker-title" placeholder="e.g. Assistant Professor of Statistics" value={DEBUG_MODE ? DEBUG_VALUES.speakerTitle : null} />
                 </div>
             </div>
             <div class="form-row my-2" id="form-row-1">
                 <div class="form-group col-md-6">
                     <h3><label for="speaker-institution-0">Speaker Institution Line 0 *</label></h3>
-                    <input class="form-control-lg full-width" type="text" id="speaker-institution-0" placeholder="e.g. Department of Biostatistics" />
+                    <input class="form-control-lg full-width" type="text" id="speaker-institution-0" placeholder="e.g. Department of Biostatistics" value={DEBUG_MODE ? DEBUG_VALUES.speakerInstitution0 : null} />
                 </div>
                 <div class="form-group col-md-6">
                     <h3><label for="speaker-institution-1">Speaker Institution Line 1 *</label></h3>
-                    <input class="form-control-lg full-width" type="text" id="speaker-institution-1" placeholder="e.g. UCLA" />
+                    <input class="form-control-lg full-width" type="text" id="speaker-institution-1" placeholder="e.g. UCLA" value={DEBUG_MODE ? DEBUG_VALUES.speakerInstitution1 : null} />
                 </div>
             </div>
             <div class="form-row my-2" id="form-row-2">
                 <div class="form-group col">
                     <h3><label for="seminar-title">Seminar Title *</label></h3>
-                    <input class="form-control-lg full-width" type="text" id="seminar-title" />
+                    <input class="form-control-lg full-width" type="text" id="seminar-title" value={DEBUG_MODE ? DEBUG_VALUES.seminarTitle : null} />
                 </div>
             </div>
             <div class="form-row my-2" id="form-row-3">
                 <div class="form-group col">
                     <h3><label for="seminar-abstract">Seminar Abstract *</label></h3>
-                    <textarea class="form-control-lg full-width" id="seminar-abstract" />
+                    <textarea class="form-control-lg full-width" style="white-space: pre-wrap;" id="seminar-abstract" value={DEBUG_MODE ? DEBUG_VALUES.seminarAbstract : null} />
                 </div>
             </div>
             <div class="form-row my-2" id="form-row-4">
                 <div class="form-group col">
                     <h3><label for="seminar-quarter">Seminar Quarter *</label></h3>
-                    <input class="form-control-lg full-width" type="text" id="seminar-quarter" placeholder="e.g. Spring 2021" />
+                    <input class="form-control-lg full-width" type="text" id="seminar-quarter" placeholder="e.g. Spring 2021" value={DEBUG_MODE ? DEBUG_VALUES.seminarQuarter : null} />
                 </div>
                 <div class="form-group col">
                     <h3><label for="seminar-date">Seminar Date *</label></h3>
-                    <input class="form-control-lg full-width" type="date" id="seminar-date" />
+                    <input class="form-control-lg full-width" type="date" id="seminar-date" value={DEBUG_MODE ? DEBUG_VALUES.seminarDate : null} />
                 </div>
                 <div class="form-group col">
                     <h3><label for="seminar-time">Seminar Time *</label></h3>
@@ -100,7 +104,7 @@
                 <div class="form-row my-2" id="form-row-6a">
                     <div class="form-group col-md-6">
                         <h3><label for="seminar-link">Seminar Link *</label></h3>
-                        <input class="form-control-lg full-width" type="text" id="seminar-link" />
+                        <input class="form-control-lg full-width" type="text" id="seminar-link" value={DEBUG_MODE ? DEBUG_VALUES.seminarLink : null} />
                         <small id="seminar-link-help" class="form-text text-muted">Zoom Link</small>
                     </div>
                     <div class="form-group col-md-6">

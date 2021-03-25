@@ -8,11 +8,12 @@
 	function print() {
 		// Create window for printing
 		const printContent = document.querySelector(".print");
-		const printWindow = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+		const printWindow = window.open('', '', 'left=0,top=0,width=800,height=1000,toolbar=0,scrollbars=0,status=0');
 
 		// Link CSS and write HTML
 		printWindow.document.write("<link rel='stylesheet' href='bootstrap.min.css'>");
 		printWindow.document.write("<link rel='stylesheet' href='build/bundle.css'>");
+		printWindow.document.write("<style>@media print {@page {size: Letter portrait;}}</style>");
 
 		// Write print data
 		printWindow.document.write(printContent.innerHTML);
@@ -23,6 +24,24 @@
 		printWindow.focus();
 		printWindow.print();
 	}
+
+	// FOR DEBUG ONLY
+	const DEBUG_MODE = true;
+	const DEBUG_FLYER: FlyerData = {
+		"speakerName": "Fushiguro Megumi",
+        "speakerTitle": "Student",
+        "speakerInstitution0": "Department of Exorcism",
+        "speakerInstitution1": "Jujutsu Kousen",
+        "seminarTitle": "LOREM IPSUM DOLOR SIT AMET CONSECTETUR ADIPISCING ELIT MAECENAS PELLENTESQUE AUCTOR LUCTUS DONEC ALIQUAM",
+        "seminarAbstract": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pellentesque auctor luctus. Donec aliquam semper mi et dignissim. Curabitur consequat malesuada dui. Proin ultrices libero magna, non feugiat tellus lobortis at. Nulla sollicitudin orci eros, et dapibus turpis blandit finibus. Etiam ac fermentum ante. Cras at leo ac lorem elementum sagittis id ac lacus. Quisque consectetur purus id interdum placerat.\n\nSed quis nunc aliquam, suscipit nibh sed, egestas lorem. Vivamus sit amet dui nibh. Cras est arcu, placerat id erat et, faucibus condimentum leo. Fusce id lorem quam. Vivamus sed pharetra tellus, vel ullamcorper mauris. In magna nisl, facilisis ut augue nec, vulputate tincidunt libero. Proin tristique est eu tellus finibus, id posuere ex mollis. Vivamus a feugiat dui.",
+        "seminarDate": null,
+        "seminarTime": "3:30pm - 4:30pm",
+        "seminarQuarter": "Spring 2021",
+        "seminarLocation": "",
+        "seminarLink": "link link link",
+        "seminarIDPWD": "id pwd",
+        "refreshments": false
+	} as FlyerData;
 
 	// Create output flyer
 	let flyerData = {} as FlyerData;
@@ -51,7 +70,7 @@
 
 		<!-- Get Flyer Data -->
 		<div class="container" id="input-form">
-			<Input on:finished={submitFinished}/>
+			<Input on:finished={submitFinished} DEBUG_VALUES={DEBUG_MODE ? DEBUG_FLYER : null} />
 		</div>
 
 		<!-- Printable Area -->
