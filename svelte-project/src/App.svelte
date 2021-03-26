@@ -13,10 +13,11 @@
 		// Link CSS and write HTML
 		printWindow.document.write("<link rel='stylesheet' href='bootstrap.min.css'>");
 		printWindow.document.write("<link rel='stylesheet' href='build/bundle.css'>");
-		printWindow.document.write("<style>@media print {@page {size: Letter portrait;}}</style>");
+		printWindow.document.write("<style>@media print {@page {size: Letter portrait;}}</style>");		
 
 		// Write print data
-		printWindow.document.write(printContent.innerHTML);
+		const printData = `<div style="width: 22cm; height: 28cm;">${printContent.innerHTML}</div>`;	// Put content in fixed size div
+		printWindow.document.write(printData);
 		console.log("HTML to print:\n" + printContent.innerHTML);
 
 		// Focus and call browser print
