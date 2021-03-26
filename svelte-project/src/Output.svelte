@@ -22,7 +22,7 @@
         "refreshments": false
     } as FlyerData;
 
-    function getField(field: DataFields): string {
+    function getField(field: DataFields): string | boolean {
         switch (field) {
             case DataFields.SPEAKER_NAME:
                 return flyer.speakerName;
@@ -39,8 +39,11 @@
             case DataFields.SEMINAR_QUARTER:
                 return flyer.seminarQuarter.toUpperCase();
             case DataFields.SEMINAR_DATE:
-                // WILL FIX LATER
-                return flyer.seminarDate.toDateString();
+                const dateFormatOptions = { weekday: 'long', month: 'long', day: '2-digit', year: 'numeric', timeZone: 'UTC' } as unknown;
+                const dateStr = flyer.seminarDate.toLocaleDateString('en-US', dateFormatOptions);
+                const lastComma = dateStr.lastIndexOf(',');
+                const finalDateStr = dateStr.slice(0, lastComma) + dateStr.slice(lastComma + 1, dateStr.length);
+                return finalDateStr.toUpperCase();
             case DataFields.SEMINAR_TIME:
                 return flyer.seminarTime;
             case DataFields.SEMINAR_LINK:
@@ -49,6 +52,8 @@
                 return flyer.seminarIDPWD;
             case DataFields.SEMINAR_LOCATION:
                 return flyer.seminarLocation;
+            case DataFields.REFRESHMENTS_SERVED:
+                return flyer.refreshments;
             default:
                 return "";
         }
@@ -96,8 +101,26 @@
         </div>
         <div id="seminar-info">
             <p class="resize" id="seminar-title">{getField(DataFields.SEMINAR_TITLE)}</p>
-            <div style="height: 10%;"></div>
-            <p class="resize" style="white-space: pre-wrap;" id="seminar-abstract">{getField(DataFields.SEMINAR_ABSTRACT)}</p>
+            <div style="height: 8%;"></div>
+            <div style="text-align: center;">
+                <div style="display: inline-block; text-align: left;" id="seminar-abstract-outer-div">
+                    <p class="resize" style="white-space: pre-wrap;" id="seminar-abstract">{getField(DataFields.SEMINAR_ABSTRACT)}</p>
+                </div>
+            </div>
+        </div>
+        <div id="date-time-info">
+            <p class="date-time" id="date">{getField(DataFields.SEMINAR_DATE)}</p>
+            <p class="date-time" id="time" style="margin-top: -10px;">{`${getField(DataFields.SEMINAR_TIME)}, ${getField(DataFields.SEMINAR_LOCATION)}`}</p>
+        
+            <!-- If online -->
+            {#if getField(DataFields.SEMINAR_LOCATION) == "Online via Zoom"}
+                <p class="date-time-supplement-text">{getField(DataFields.SEMINAR_ID_PWD)}</p>
+            {/if}
+
+            <!-- If refreshments -->
+            {#if getField(DataFields.REFRESHMENTS_SERVED)}
+                <p class="date-time-supplement-text">{`Refreshments served at 3:00pm in ${getField(DataFields.SEMINAR_LOCATION)}`}</p>
+            {/if}
         </div>
     </div>
 </main>
@@ -149,7 +172,7 @@
     }
 
     #flyer-body {
-        height: 24.9cm;
+        height: 24.84cm;
         overflow: auto;
         font-family: 'Open Sans', sans-serif;
     }
@@ -180,26 +203,43 @@
 
     #flyer-body > #seminar-info {
         margin-top: 1.5cm;
-        margin-bottom: auto;
-        margin-left: auto;
-        margin-right: auto;
-        width: 80%;
         height: 55%;
-        align-self: center;
     }
 
     #seminar-info > #seminar-title {
         margin: auto;
-        max-height: 30%;
+        width: 80%;
+        max-height: 25%;
         text-align: center;
         font-size: 24pt;
         font-weight: bold;
     }
 
-    #seminar-info > #seminar-abstract {
-        max-height: 60%;
-        text-align: left;
+    #seminar-info #seminar-abstract-outer-div {
+        width: 85%;
+        padding: 2%;
+        max-height: 67%;
+        border: solid;
+        border-color: #9b9a9a;
+        border-width: 5px;
         font-size: 14pt;
+        font-weight: lighter;
+    }
+
+    #date-time-info {
+        margin-top: 1.00cm;
+    }
+
+    #date-time-info > .date-time {
+        text-align: center;
+        font-size: 20pt;
+        font-weight: bolder;
+    }
+
+    #date-time-info .date-time-supplement-text {
+        text-align: center;
+        color: #1177af;
+        font-size: 12pt;
         font-weight: lighter;
     }
 </style>

@@ -1,19 +1,24 @@
 import type { FlyerData } from './utils';
 
-export async function handleData(formFields: HTMLInputElement[], refreshmentsWillBeServed: boolean): Promise<FlyerData> {
+export async function handleData(formFields: HTMLInputElement[], seminarOnline: boolean, refreshmentsWillBeServed: boolean): Promise<FlyerData> {
     return new Promise((resolve, reject) => {
         try {
-            const data = organizeData(formFields, refreshmentsWillBeServed);
+            const data = organizeData(formFields, seminarOnline, refreshmentsWillBeServed);
             resolve(data);
         } catch (err) {
             console.error(err);
-            reject(`An error occured: ${err}`);
+            reject(`An error occured:\n${err}`);
         }
     });
 }
 
-function organizeData(formFields: HTMLInputElement[], refreshmentsWillBeServed: boolean): FlyerData {
+function organizeData(formFields: HTMLInputElement[], seminarOnline: boolean, refreshmentsWillBeServed: boolean): FlyerData {
     let flyer = {} as FlyerData;
+
+    // Non-input fields
+    flyer.refreshments = refreshmentsWillBeServed;
+    if (seminarOnline)
+        flyer.seminarLocation = "Online via Zoom";
 
     // Get flyer fields organized
     for (const field of formFields) {
@@ -40,7 +45,10 @@ function organizeData(formFields: HTMLInputElement[], refreshmentsWillBeServed: 
                 flyer.seminarQuarter = field.value;
                 break;
             case "seminar-date":
-                flyer.seminarDate = field.valueAsDate;
+                // Do check to see if date is valid
+                if (field.valueAsDate == undefined)
+                    throw Error("You have not selected a valid date. Please try again.");
+                else flyer.seminarDate = field.valueAsDate;
                 break;
             case "seminar-time":
                 flyer.seminarTime = field.value;
@@ -52,13 +60,13 @@ function organizeData(formFields: HTMLInputElement[], refreshmentsWillBeServed: 
                 flyer.seminarIDPWD = field.value;
                 break;
             case "seminar-location":
-                flyer.seminarLocation = field.value;
+                if (!seminarOnline)
+                    flyer.seminarLocation = field.value;
                 break;
             default:
                 continue;
         }
     }
-    flyer.refreshments = refreshmentsWillBeServed;
 
     return flyer;
 }

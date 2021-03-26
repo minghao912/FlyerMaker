@@ -8,15 +8,15 @@
 	function print() {
 		// Create window for printing
 		const printContent = document.querySelector(".print");
-		const printWindow = window.open('', '', 'left=0,top=0,width=800,height=1000,toolbar=0,scrollbars=0,status=0');
+		const printWindow = window.open('', '', 'left=0,top=0,width=1200,height=1000,toolbar=0,scrollbars=0,status=0');
 
 		// Link CSS and write HTML
 		printWindow.document.write("<link rel='stylesheet' href='bootstrap.min.css'>");
 		printWindow.document.write("<link rel='stylesheet' href='build/bundle.css'>");
-		printWindow.document.write("<style>@media print {@page {size: Letter portrait;}}</style>");		
+		printWindow.document.write("<style>@media print {html, body {width: 21.59cm; height: 27.94cm;} @page {size: Letter portrait;}}</style>");		
 
 		// Write print data
-		const printData = `<div style="width: 22cm; height: 28cm;">${printContent.innerHTML}</div>`;	// Put content in fixed size div
+		const printData = `<div style="width: 21.59cm; height: 27.94cm;">${printContent.innerHTML}</div>`;	// Put content in fixed size div
 		printWindow.document.write(printData);
 		console.log("HTML to print:\n" + printContent.innerHTML);
 
@@ -121,8 +121,8 @@
 		border: solid;
 		border-color: #292929;
 		border-width: 5px;
-		width: 22cm;
-		height: 28cm;
+		width: 21.59cm;
+		height: 27.94cm;
 		padding: 0px 0px 0px 0px;
 	}
 </style>

@@ -33,9 +33,11 @@
         });
 
         // Submit
-        handleData(formFields, refreshmentsWillBeServed)
+        handleData(formFields, showSeminarOnlineInfo, refreshmentsWillBeServed)
             .then(verifiedFlyer => triggerFinished(verifiedFlyer))
-            .catch(err => console.error(err));
+            .catch(err => {
+                console.error(err), alert(err)
+            });
     }
     
     // Tells main page that flyer data was submitted
