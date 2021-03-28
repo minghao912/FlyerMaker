@@ -114,7 +114,8 @@
         
             <!-- If online -->
             {#if getField(DataFields.SEMINAR_LOCATION) == "Online via Zoom"}
-                <p class="date-time-supplement-text">{getField(DataFields.SEMINAR_ID_PWD)}</p>
+                <p class="date-time-supplement-text">{getField(DataFields.SEMINAR_LINK)}</p>
+                <p class="date-time-supplement-text" style="color: black;">{getField(DataFields.SEMINAR_ID_PWD)}</p>
             {/if}
 
             <!-- If refreshments -->

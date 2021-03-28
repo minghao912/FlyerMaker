@@ -39,7 +39,7 @@
         "seminarTime": "3:30pm - 4:30pm",
         "seminarQuarter": "Spring 2021",
         "seminarLocation": "",
-        "seminarLink": "link link link",
+        "seminarLink": "https://ucla.zoom.us/j/95460365266?pwd=bEFCT2NBVE51RTVBTFQxa29WbnhqUT09",
         "seminarIDPWD": "id pwd",
         "refreshments": false
 	} as FlyerData;
