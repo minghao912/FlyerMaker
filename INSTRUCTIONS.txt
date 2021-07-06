@@ -5,3 +5,7 @@
 5. Check that all information is correct
 6. Click the black printer button at the bottom right
 7. Save to PDF, or print directly
+
+Note that the information is not saved after the "Create flyer" button is clicked. I recommend saving/writing the information down somewhere else and then copying/pasting it into each box.
+
+Made by Minghao Chen, 2021.

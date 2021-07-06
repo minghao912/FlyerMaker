@@ -1,2 +1,3 @@
 # FlyerMaker
-Automatically Makes a Flyer
+
+Made for the UCLA Biostatistics Department to automatically generate a flyer for seminars.
