@@ -1,0 +1,7 @@
+1. Open the "final" folder
+2. Double-click the file named "index.html"
+3. Input all necessary information
+4. Click "Create Flyer" at the bottom
+5. Check that all information is correct
+6. Click the black printer button at the bottom right
+7. Save to PDF, or print directly

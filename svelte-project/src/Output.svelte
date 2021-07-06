@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
+    import { beforeUpdate, onMount } from 'svelte';
     import jQuery from 'jquery';
 
     import { DataFields } from './utils';
@@ -61,19 +61,22 @@
 
     // On load to DOM
     onMount(async () => {
-        // Debug and log flyer
+        // For debug
         console.log(flyer);
 
         // Resize the title and abstract text to fit into div
         const elements: NodeListOf<HTMLElement> = document.querySelectorAll(".resize");
-        elements.forEach(element => {
+        for (let element of elements) {
             while (element.scrollHeight > element.offsetHeight) {
                 let jqElement = jQuery(element);
 
-                let newFontSize = (parseInt(jqElement.css('font-size').slice(0, -2)) - 1) + 'px';
+                let oldFontSize = jqElement.css('font-size').slice(0, -2);
+                let newFontSize = (parseInt(oldFontSize) - 1) + 'px';
                 jqElement.css('font-size', newFontSize);
+
+                console.log(`${element.id}, Old: ${oldFontSize}, New: ${newFontSize}`);
             }
-        });
+        }
     });
 </script>
 
@@ -102,6 +105,10 @@
         <div id="seminar-info">
             <p class="resize" id="seminar-title">{getField(DataFields.SEMINAR_TITLE)}</p>
             <div style="height: 8%;"></div>
+            <div id="abstract-heading-div">
+                <!-- Position defined using CSS -->
+                <img id="abstract-heading" src="images/abstract.png" alt="abstract_heading">
+            </div>
             <div style="text-align: center;">
                 <div style="display: inline-block; text-align: left;" id="seminar-abstract-outer-div">
                     <p class="resize" style="white-space: pre-wrap;" id="seminar-abstract">{getField(DataFields.SEMINAR_ABSTRACT)}</p>
@@ -216,15 +223,33 @@
         font-weight: bold;
     }
 
+    #seminar-info > #abstract-heading-div {
+        margin-top: -0.5cm;
+        margin-left: 3.0cm;
+        width: auto;
+        height: 1cm;
+        z-index: 10;    
+        position: absolute;
+    }
+
+    #seminar-info > #abstract-heading-div > #abstract-heading {
+        max-height: 100%;
+    }
+
     #seminar-info #seminar-abstract-outer-div {
         width: 85%;
         padding: 2%;
-        max-height: 67%;
+        max-height: 370px;
         border: solid;
         border-color: #9b9a9a;
         border-width: 5px;
         font-size: 14pt;
         font-weight: lighter;
+        display: block;
+    }
+
+    #seminar-info #seminar-abstract-outer-div > #seminar-abstract {
+        max-height: 360px;
     }
 
     #date-time-info {

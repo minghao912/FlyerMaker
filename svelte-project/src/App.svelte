@@ -27,7 +27,7 @@
 	}
 
 	// FOR DEBUG ONLY
-	const DEBUG_MODE = true;
+	const DEBUG_MODE = false;
 	const DEBUG_FLYER: FlyerData = {
 		"speakerName": "Fushiguro Megumi",
         "speakerTitle": "Student",
